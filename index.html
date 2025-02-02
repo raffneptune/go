@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./raffneptune.jpg" type="image/x-icon" />
+    <title>Raff | Go</title>
+    <style>
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Menghapus gaya default pada link */
+        a.custom-link {
+        text-decoration: none; /* Menghapus garis bawah */
+        color: inherit; /* Mengikuti warna teks parent */
+        }
+
+        /* Efek hover pada link */
+        a.custom-link:hover {
+        color: #007bff; /* Mengubah warna teks saat hover */
+        text-decoration: underline; /* Menambahkan garis bawah saat hover */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Kumpulan Kode Go</h1>
+
+<h2>1. </h2>
+<pre><code class="code-block">
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
+var daftarNama = []string{"Ali", "Budi", "Citra", "Dewi", "Eka"}
+var absensi = make([]string, len(daftarNama))
+
+func catatAbsensi() {
+	scanner := bufio.NewScanner(os.Stdin)
+
+	fmt.Println("Daftar Nama:")
+	for i, nama := range daftarNama {
+		fmt.Printf("%d. %s\n", i+1, nama)
+	}
+
+	// Mencatat absensi untuk setiap nama
+	for i, nama := range daftarNama {
+		fmt.Printf("Apakah %s hadir? (y/n): ", nama)
+		scanner.Scan()
+		status := strings.TrimSpace(strings.ToLower(scanner.Text()))
+
+		if status == "y" {
+			absensi[i] = "Hadir"
+		} else if status == "n" {
+			absensi[i] = "Tidak Hadir"
+		} else {
+			absensi[i] = "Status Tidak Valid"
+		}
+	}
+
+	// Menampilkan hasil absensi
+	fmt.Println("\nAbsensi Hari Ini:")
+	for i, nama := range daftarNama {
+		fmt.Printf("%s: %s\n", nama, absensi[i])
+	}
+}
+
+func main() {
+	catatAbsensi()
+}
+</code></pre>
+
+<h2>2. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>3. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>4. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>5. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>6. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>7. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>8. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>9. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>10. </h2>
+<pre><code class="code-block">
+
+</code></pre>
+
+<h2>Mau Lebih Banyak Kode? Lihat Di Github Saya (Kode 11 - 20)</h2>
+<h2><a href="https://github.com/raffneptune/go" class="custom-link">Klik Disini</a>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("pre").forEach(pre => {
+            let button = document.createElement("button");
+            button.className = "copy-btn";
+            button.innerText = "Copy";
+            pre.style.position = "relative";
+            pre.appendChild(button);
+
+            button.addEventListener("click", () => {
+                let code = pre.querySelector("code").innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerText = "Copied!";
+                    setTimeout(() => { button.innerText = "Copy"; }, 2000);
+                }).catch(err => {
+                    console.error("Gagal menyalin kode: ", err);
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
